@@ -6,26 +6,26 @@ on:
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generate Snake
+      - name: Generate Snake SVG
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           svg_out_path: dist/github-contribution-grid-snake.svg
 
-      - name: Check if Snake file exists
+      - name: Verify Snake File Exists
         run: |
           if [ ! -f dist/github-contribution-grid-snake.svg ]; then
-            echo "❌ Snake file was not generated!"
+            echo "❌ Snake file was not generated! Exiting workflow."
             exit 1
           fi
 
-      - name: Commit and push changes
+      - name: Commit and Push Snake File
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
