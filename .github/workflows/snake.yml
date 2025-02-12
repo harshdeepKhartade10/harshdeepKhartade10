@@ -18,6 +18,13 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           svg_out_path: dist/github-contribution-grid-snake.svg
 
+      - name: Check if Snake file exists
+        run: |
+          if [ ! -f dist/github-contribution-grid-snake.svg ]; then
+            echo "❌ Snake file was not generated!"
+            exit 1
+          fi
+
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -25,5 +32,5 @@ jobs:
           git config --global user.email "harshalkkhartade@gmail.com"
           git config --global user.name "GitHub Action"
           git add dist/github-contribution-grid-snake.svg
-          git commit -m "Updated Snake Contribution Grid" || echo "No changes to commit"
-          git push origin main || echo "Push failed, skipping..."
+          git commit -m "Updated Snake Contribution Grid" || exit 0
+          git push || exit 0
