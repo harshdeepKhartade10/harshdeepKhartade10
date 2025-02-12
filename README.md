@@ -48,9 +48,8 @@
 [![GitHub Skyline](https://skyline.github.com/harshdeepKhartade10/2024)](https://skyline.github.com/harshdeepKhartade10)
 
 ---
-
-## 🎮 GitHub Contribution Snake  
-![snake gif](https://github.com/harshdeepKhartade10/harshdeepKhartade10/blob/output/github-contribution-grid-snake.svg)
+## 🐍 GitHub Contribution Snake  
+![GitHub Contribution Snake](https://github.com/harshdeepKhartade10/harshdeepKhartade10/blob/output/github-contribution-grid-snake.svg)
 
 ---
 
