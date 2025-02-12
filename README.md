@@ -28,8 +28,8 @@
 
 ---
 
-## 🏆 GitHub Achievements  
-![Trophy](https://github-profile-trophy.vercel.app/?username=harshdeepKhartade10&theme=radical&column=7)
+<!-- ## 🏆 GitHub Achievements  
+![Trophy](https://github-profile-trophy.vercel.app/?username=harshdeepKhartade10&theme=radical&column=7) -->
 
 ---
 
