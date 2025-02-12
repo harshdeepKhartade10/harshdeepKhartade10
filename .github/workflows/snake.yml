@@ -1,3 +1,42 @@
+#  name: Generate Snake Contribution Grid
+
+# on:
+#   schedule:
+#     - cron: "0 0 * * *"  # Runs daily at midnight UTC
+#   workflow_dispatch:  # Allows manual trigger
+
+# jobs:
+#   generate:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v3
+
+#       - name: Generate Snake SVG
+#         uses: Platane/snk@v3
+#         with:
+#           github_user_name: ${{ github.repository_owner }}
+#           outputs: dist/snake.svg  # Fixed path
+
+#       - name: Verify Snake File Exists
+#         run: |
+#           ls -lah dist  # Debug: List files in the output folder
+#           if [ ! -f dist/snake.svg ]; then
+#             echo "❌ Snake file was not generated! Exiting workflow."
+#             exit 1
+#           fi
+
+#       - name: Commit and Push Snake File
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: |
+#           git config --global user.email "harshalkkhartade@gmail.com"
+#           git config --global user.name "GitHub Action"
+#           git add dist/snake.svg
+#           git commit -m "Updated Snake Contribution Grid" || exit 0
+#           git push || exit 0
+
+
 name: Generate Snake Contribution Grid
 
 on:
@@ -16,13 +55,19 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/snake.svg  # Fixed path
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+      - name: Create output folder
+        run: mkdir -p output
+
+      - name: Move generated file to output folder
+        run: mv dist/github-contribution-grid-snake.svg output/github-contribution-grid-snake.svg
 
       - name: Verify Snake File Exists
         run: |
-          ls -lah dist  # Debug: List files in the output folder
-          if [ ! -f dist/snake.svg ]; then
-            echo "❌ Snake file was not generated! Exiting workflow."
+          ls -lah output  # Debug: List files in the output folder
+          if [ ! -f output/github-contribution-grid-snake.svg ]; then
+            echo "❌ Snake file was not moved properly! Exiting workflow."
             exit 1
           fi
 
@@ -32,6 +77,7 @@ jobs:
         run: |
           git config --global user.email "harshalkkhartade@gmail.com"
           git config --global user.name "GitHub Action"
-          git add dist/snake.svg
+          git add output/github-contribution-grid-snake.svg
           git commit -m "Updated Snake Contribution Grid" || exit 0
           git push || exit 0
+
