@@ -13,7 +13,7 @@
 - 🔭 I’m currently working on **File Sharing Website**  
 - 🌱 I’m learning **AWS, Microservices, and DevOps**  
 - 💬 Ask me about **MERN Stack, AWS, and System Design**  
-- 📫 How to reach me: **harshdeepkkhartade1010@gmail.com**  
+- 📫 How to reach me: **harshdeepkkhartade@gmail.com**  
 - ⚡ Fun fact: **I solve DSA problems in my free time**  
 
 ---
